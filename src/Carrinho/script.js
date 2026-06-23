@@ -44,8 +44,10 @@ function gerar(){
         <html>
             <head>
                 <meta charset="UTF-8">
-            </head>    
-    `
+            </head>
+            <body>
+                <h1>PEDIDO COMFIRMADO</h1>
+                <h3>Agradecemos sua compra e preferência.</h3> `
 }
 
 
