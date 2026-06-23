@@ -1,7 +1,7 @@
 $(document).ready(function() {
     const carrinho = JSON.parse(localStorage.getItem("carrinho")) || []
 
-    const listElement = $('#lista')
+    const listElement = $("#lista")
 
     const totalElement = $("#total")
 
@@ -22,7 +22,7 @@ $(document).ready(function() {
 
             totalPreco += item.preco
         })
-        totalElement.text('Total:$$(total.Preco.toFixed(2)}')
+        totalElement.text(`Total:$${total.Preco.toFixed(2)}`)
     }
 
     function removerItem(index){
@@ -47,7 +47,27 @@ function gerar(){
             </head>
             <body>
                 <h1>PEDIDO COMFIRMADO</h1>
-                <h3>Agradecemos sua compra e preferência.</h3> `
+                <h3>Agradecemos sua compra e preferência.</h3>
+                <br>
+                ${listaHtml}
+                <br>
+                <br>
+                ${totalHtml}
+            </body>
+        </html>  
+    `
+
+    const blob = new Blob([conteudoHTML], {type: "application/msword"})
+    const link = document.createElement("a")
+
+    link.href = URL.createObjectURL(blob)
+    link.dowload = "pedido.doc"
+    link.click()
+    document.getElementById("pedido").style.display = "block"
+}
+
+function successClose(){
+    document.getElementById("pedido").style.display = "none"
 }
 
 
