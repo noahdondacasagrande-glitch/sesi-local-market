@@ -1,6 +1,8 @@
 $(document).ready(function() {
     const carrinho = JSON.parse(localStorage.getItem("carrinho")) || []
+
     const listElement = $('#lista')
+
     const totalElement = $("#total")
 
     function exibirCarrinho(){
@@ -22,11 +24,28 @@ $(document).ready(function() {
         })
         totalElement.text('Total:$$(total.Preco.toFixed(2)}')
     }
-    function removerItem(index){
-        
-    }
 
+    function removerItem(index){
+        carrinho.splice(index, 1)
+        localStorage.setItem("carrinho", JSON.stringify(carrinho))
+        exibirCarrinho()
+    }
+    exibirCarrinho()
 
 })
+function gerar(){
+    const listaElement = document.getElementById("lista") 
+    const totalElement = document.getElementById("total") 
+    const listaClone = listaElement.cloneNode(true)
+    $(listaClone).find("button").remover()
+    const listaHtml = listaClone.innerHTML
+    const totalHtml = totalElement.innerHTML
+    const conteudoHTML = `
+        <html>
+            <head>
+                <meta charset="UTF-8">
+            </head>    
+    `
+}
 
 

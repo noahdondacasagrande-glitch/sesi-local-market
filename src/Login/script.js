@@ -35,6 +35,6 @@ function fecharError(){
     document.getElementById("error-modal").style.display = "none"
     document.getElementById("nome").style.border = "2px solid black"
     document.getElementById("senha").style.border = "2px solid black"
-    document.getElementById("senha").value = ""
+    document.getElementById("senha").value = "" 
 }
 
